@@ -58,6 +58,7 @@ struct Film {
             view.backgroundColor = .white
             collectionView.dataSource = self
             collectionView.register(FilmCell.self, forCellWithReuseIdentifier: "FilmCell")
+            collectionView.delegate = self
             
             view.addSubview(collectionView)
         }
@@ -91,5 +92,19 @@ extension ListPopularFolmViewController: UICollectionViewDataSource {
         
         cell.configure(with: film)
         return cell
+    }
+}
+
+extension ListPopularFolmViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let film = films[indexPath.item]
+       
+        let filmDetailsViewController = FilmDetailsViewController(film: film)
+        
+        
+        navigationController?.pushViewController(filmDetailsViewController, animated: true)
+        
+        
     }
 }
