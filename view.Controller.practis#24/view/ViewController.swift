@@ -6,14 +6,26 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
+    
+    pri
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupUI()
+        setupConstraints()
     }
-
+    
+    func setupUI() {
+        
+    }
+    
+    func setupConstraints() {
+        
+    }
 
 }
 
